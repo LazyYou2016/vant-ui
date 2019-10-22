@@ -1,0 +1,29 @@
+.flex-container {
+  display: flex;
+
+  &.flex-align-center {
+    align-items: center;
+  }
+}
+
+.flex-item {
+  flex: 1;
+}
+
+// .flex-shrink {
+//   position: relative;
+//   flex-shrink: 1;
+//   -ms-flex-negative: 1;
+//   -webkit-flex-shrink: 1;
+//   -ms-flex: 0 1 auto;
+//   flex: 0 1 auto;
+// }
+
+@col: 6;
+.mixin-loop (@i) when (@i > 0) {
+  &.flex-@{i} {
+    flex: 100% / @i !important;
+  }
+  .mixin-loop(@i - 1);
+}
+.mixin-loop(@col);

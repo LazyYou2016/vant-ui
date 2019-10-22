@@ -1,0 +1,8 @@
+@row: 12;
+.mixin-loop (@i) when (@i > 0) {
+  .row-@{i} {
+    height: 100% / (12 / @i) !important;
+  }
+  .mixin-loop(@i - 1);
+}
+.mixin-loop(@row);
